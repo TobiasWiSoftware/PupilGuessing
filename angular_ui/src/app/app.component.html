@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="color: black;">Schülerraten</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse d-flex" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link scrollto" aria-current="page" href="#pupil-game-id" style="color: black;">Spielen</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link scrollto" href="#pupil-adding-id" style="color: black;">Schüler anlegen</a>
+        </li>
+      </ul>
+      <!-- Komponenten-Platzhalter, nun sicher rechtsbündig durch d-flex auf dem Elternelement -->
+    </div>
+    <div class="ms-auto">
+      <app-player-adding></app-player-adding>
+    </div>
+  </div>
+</nav>
+
+
+<style>
+  .navbar-nav .nav-link {
+    color: black !important; /* Setzt die Schriftfarbe der Links auf Schwarz */
+  }
+  
+  .navbar-nav .nav-link:hover {
+    opacity: 0.7; /* Macht die Links beim Darüberfahren mit der Maus durchsichtiger */
+  }
+
+
+</style>
+
+
+
+
+<app-pupil-game></app-pupil-game> <!-- Verwendung der pupil-image Komponente -->
+
+
+
+<app-pupil-adding></app-pupil-adding> <!-- Verwendung der pupil-image Komponente -->
+
+<router-outlet />
