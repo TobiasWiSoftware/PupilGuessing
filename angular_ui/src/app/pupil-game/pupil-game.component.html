@@ -1,5 +1,4 @@
 <section id="pupil-game-id">
-
   <br>
   <br>
   <br>
@@ -13,48 +12,63 @@
 
   <!-- Hauptcontainer für das Layout, bietet Außenabstand -->
   <div class="container mt-4">
-    <!-- Überschrift zentriert über dem gesamten Inhalt -->
-    <h1 class="text-center mb-4">Schülerraten</h1>
+      <!-- Überschrift zentriert über dem gesamten Inhalt -->
+      <h1 class="text-center mb-4">Spielen ({{this.indexPupilList + 1}}/{{this.listPupils.length}}) -- </h1>
 
-    <!-- Zeile definiert eine horizontale Gruppierung der Inhalte -->
-    <div class="row">
-      <!-- Spalte für das Bild, linksbündig, nimmt 6 von 12 möglichen Spalten ein -->
-      <div class="col-md-6">
-        <!-- Image-Container mit Prüfung, ob imageBase64 vorhanden ist -->
-        <div *ngIf="imageBase64; else noImage" class="image-container">
-          <!-- Bild, angezeigt nur wenn imageBase64 vorhanden ist, mit automatischer Größenanpassung -->
-          <img [src]="'data:image/jpeg;base64,' + imageBase64" alt="Pupil Image" class="img-fluid">
-        </div>
-        <!-- Platzhalter für den Fall, dass kein Bild vorhanden ist -->
-        <ng-template #noImage>
-          <div class="image-container bg-light text-danger" style="height: 200px; background-color: #ffcccc;">
-            <p class="m-0" style="line-height: 200px;">Kein Bild vorhanden</p>
+      <!-- Zeile definiert eine horizontale Gruppierung der Inhalte -->
+      <div class="row">
+          <!-- Spalte für das Bild, linksbündig, nimmt 6 von 12 möglichen Spalten ein -->
+          <div class="col-md-6">
+              <!-- Image-Container mit Prüfung, ob imageBase64 vorhanden ist -->
+              <div *ngIf="this.pupil.picturedata; else noImage" class="image-container">
+                  <!-- Bild, angezeigt nur wenn imageBase64 vorhanden ist, mit automatischer Größenanpassung -->
+                  <img [src]="this.pupil.picturedata" alt="Pupil Image" class="img-fluid">
+              </div>
+              <!-- Platzhalter für den Fall, dass kein Bild vorhanden ist -->
+              <ng-template #noImage>
+                  <div class="image-container bg-light text-danger" style="height: 300px; background-color: #ffcccc;">
+                      <p class="m-0" style="line-height: 200px;">Kein Bild vorhanden</p>
+                  </div>
+              </ng-template>
           </div>
-        </ng-template>
+
+          <!-- Spalte für die Eingabefelder, rechtsbündig, nimmt ebenfalls 6 von 12 möglichen Spalten ein -->
+          <div class="col-md-6">
+              <form *ngIf="pupil">
+                  <div class="form-group">
+                      <label for="firstNameInput">Vorname</label>
+                      <input type="text" class="form-control" id="firstNameInput" [(ngModel)]="guessedPupil.firstname"
+                          name="firstname">
+                  </div>
+                  <div class="form-group">
+                      <label for="lastNameInput">Name</label>
+                      <input type="text" class="form-control" id="lastNameInput" [(ngModel)]="guessedPupil.lastname"
+                          name="lastname">
+                  </div>
+                  <!-- Innerhalb deiner <form> Tag -->
+                  <div class="form-group">
+                      <button type="button" class="btn btn-primary" (click)="tryGuessPupil()">Enter</button>
+                  </div>
+
+                  
+              </form>
+          </div>
+
       </div>
-
-      <!-- Spalte für die Eingabefelder, rechtsbündig, nimmt ebenfalls 6 von 12 möglichen Spalten ein -->
-      <div class="col-md-6">
-        <!-- Formular für Vorname und Nachname -->
-        <form>
-          <!-- Formular-Gruppe für den Vornamen -->
-          <div class="form-group">
-            <!-- Label für das Vorname-Eingabefeld -->
-            <label for="firstNameInput">Vorname</label>
-            <!-- Eingabefeld für den Vornamen -->
-            <input type="text" class="form-control" id="firstNameInput">
-          </div>
-
-          <!-- Formular-Gruppe für den Nachnamen -->
-          <div class="form-group">
-            <!-- Label für das Nachname-Eingabefeld -->
-            <label for="lastNameInput">Name</label>
-            <!-- Eingabefeld für den Nachnamen -->
-            <input type="text" class="form-control" id="lastNameInput">
-          </div>
-        </form>
-      </div>
-    </div>
   </div>
 
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 </section>

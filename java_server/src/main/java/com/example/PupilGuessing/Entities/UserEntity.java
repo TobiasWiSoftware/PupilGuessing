@@ -18,7 +18,7 @@ public class UserEntity implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @Column(name = "nick_name")
-    private String nickName;
+    private String nickname;
 
     public UserEntity() {
     }
@@ -27,9 +27,9 @@ public class UserEntity implements Serializable {
         this.id = id;
     }
 
-    public UserEntity(Integer id, String nickName) {
+    public UserEntity(Integer id, String nickname) {
         this.id = id;
-        this.nickName = nickName;
+        this.nickname = nickname;
     }
 
     public Integer getId() {
@@ -40,11 +40,11 @@ public class UserEntity implements Serializable {
         this.id = id;
     }
 
-    public String getNickName() {
-        return nickName;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 }

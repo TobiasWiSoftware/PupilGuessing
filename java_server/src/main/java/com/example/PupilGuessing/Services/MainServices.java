@@ -3,7 +3,6 @@ package com.example.PupilGuessing.Services;
 import com.example.PupilGuessing.Repositories.IPupilRepository;
 import com.example.PupilGuessing.Repositories.IUserRepository;
 
-import jakarta.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +32,10 @@ public class MainServices implements IMainService {
         return pupil.orElse(null); // Gibt null zurück, wenn kein Schüler gefunden wird
     }
 
-    @Override
+    public Iterable<PupilEntity> getPupils() {
+        return pupilRepository.findAll();
+    }
+
     public PupilEntity setPupil(@RequestBody PupilEntity pupil) {
         // Da wir direkt mit dem Base64-String arbeiten, ist keine Konvertierung
         // notwendig
@@ -44,8 +46,6 @@ public class MainServices implements IMainService {
     // Diese Methode sollte in einem UserService implementiert werden
     // und das UserRepository verwenden, um Benutzer zu speichern oder zu
     // aktualisieren
-    @Override
-    @Transactional
     public UserEntity setUser(UserEntity user) {
         return userRepository.save(user);
     }

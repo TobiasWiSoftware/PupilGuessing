@@ -28,6 +28,11 @@ public class MainController {
         return mainService.getRandomPupil();
     }
 
+    @GetMapping("/getpupils")
+    public Iterable<PupilEntity> getPupilsList() {
+        return mainService.getPupils();
+    }
+
     @PostMapping("/setpupil")
     public PupilEntity setPupil(@RequestBody PupilEntity pupil) {
         return mainService.setPupil(pupil);
@@ -43,7 +48,7 @@ public class MainController {
 
 
     // Sicherung der Spieler in der Datenbank
-    @PostMapping("/user")
+    @PostMapping("/setuser")
     public UserEntity setUser(@RequestBody UserEntity user) {
         return mainService.setUser(user);
     }

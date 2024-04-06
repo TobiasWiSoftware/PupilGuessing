@@ -9,6 +9,8 @@ import com.example.PupilGuessing.Entities.UserEntity;
 public interface IMainService {
     public PupilEntity getRandomPupil();
 
+    public Iterable<PupilEntity> getPupils();
+
     public PupilEntity setPupil(PupilEntity pupil);
 
     public UserEntity setUser(UserEntity user);

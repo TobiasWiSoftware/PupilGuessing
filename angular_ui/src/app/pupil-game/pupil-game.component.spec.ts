@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PupilImageComponent } from './pupil-game.component';
+import { PupilGameComponent } from './pupil-game.component';
 
 describe('PupilGameComponent', () => {
-  let component: PupilImageComponent;
-  let fixture: ComponentFixture<PupilImageComponent>;
+  let component: PupilGameComponent;
+  let fixture: ComponentFixture<PupilGameComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PupilImageComponent]
+      declarations: [PupilGameComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PupilImageComponent);
+    fixture = TestBed.createComponent(PupilGameComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

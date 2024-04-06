@@ -3,16 +3,14 @@
     <div class="me-3" style="margin-right: 10px;">
       <!-- Label für Points mit größerer Schrift -->
       <label class="form-label" style="font-size: larger; margin-right: 10px;">Points:</label>
-      <span id="pointsValue" style="font-size: larger;">0</span>
+      <span id="pointsValue" style="font-size: larger;">{{this.player.points}}</span>
     </div>
     <div class="me-2">
       <!-- Inputfeld für den Nickname -->
-      <input type="text" class="form-control" placeholder="Nickname">
+      <input type="text" class="form-control" [disabled]="this.isInputDisabled" [src]="this.player.nickname" placeholder="Nickname">
     </div>
     <div>
       <!-- Button zum Starten -->
-      <button type="button" class="btn btn-primary">Starten</button>
+      <button type="button" class="btn btn-primary" [disabled]="this.isInputDisabled" (click)="startGame()">Starten</button>
     </div>
-  </div>
-  
-  
+</div>
