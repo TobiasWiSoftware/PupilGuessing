@@ -1,7 +1,7 @@
 package com.example.PupilGuessing.Services;
 
 import com.example.PupilGuessing.Repositories.IPupilRepository;
-import com.example.PupilGuessing.Repositories.IUserRepository;
+import com.example.PupilGuessing.Repositories.IPlayerRepository;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +17,11 @@ import java.util.Optional;
 public class MainServices implements IMainService {
 
     private final IPupilRepository pupilRepository;
-    private final IUserRepository userRepository;
+    private final IPlayerRepository userRepository;
 
     // Injection des Repositorys durch den Konstruktor
     @Autowired
-    public MainServices(IPupilRepository repository, IUserRepository userRepository) {
+    public MainServices(IPupilRepository repository, IPlayerRepository userRepository) {
         this.pupilRepository = repository;
         this.userRepository = userRepository;
     }
@@ -46,7 +46,11 @@ public class MainServices implements IMainService {
     // Diese Methode sollte in einem UserService implementiert werden
     // und das UserRepository verwenden, um Benutzer zu speichern oder zu
     // aktualisieren
-    public UserEntity setUser(UserEntity user) {
+    public PlayerEntity setUser(PlayerEntity user) {
         return userRepository.save(user);
+    }
+
+    public Iterable<PlayerEntity> getPlayers() {
+        return userRepository.findAll();
     }
 }

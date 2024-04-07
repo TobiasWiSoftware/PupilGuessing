@@ -1,7 +1,7 @@
 package com.example.PupilGuessing.Services;
 
 import com.example.PupilGuessing.Entities.PupilEntity;
-import com.example.PupilGuessing.Entities.UserEntity;
+import com.example.PupilGuessing.Entities.PlayerEntity;
 
 
 
@@ -13,5 +13,7 @@ public interface IMainService {
 
     public PupilEntity setPupil(PupilEntity pupil);
 
-    public UserEntity setUser(UserEntity user);
+    public PlayerEntity setUser(PlayerEntity user);
+
+    public Iterable<PlayerEntity> getPlayers();
 }

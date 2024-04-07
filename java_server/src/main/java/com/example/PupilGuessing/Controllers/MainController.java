@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.PupilGuessing.Entities.PupilEntity;
-import com.example.PupilGuessing.Entities.UserEntity;
+import com.example.PupilGuessing.Entities.PlayerEntity;
 
 import com.example.PupilGuessing.Services.IMainService;
 
@@ -38,18 +38,14 @@ public class MainController {
         return mainService.setPupil(pupil);
     }
 
-    // Test satz ueber postman == hello world
-
-    // {
-    //     "firstname": "testfname3",
-    //     "lastname": "testlname3",
-    //     "pictureBase64": "SGVsbG8sIFdvcmxkIQ=="
-    // }
-
-
     // Sicherung der Spieler in der Datenbank
-    @PostMapping("/setuser")
-    public UserEntity setUser(@RequestBody UserEntity user) {
+    @PostMapping("/setplayer")
+    public PlayerEntity setUser(@RequestBody PlayerEntity user) {
         return mainService.setUser(user);
+    }
+
+    @GetMapping("/getplayers")
+    public Iterable<PlayerEntity> getPlayers() {
+        return mainService.getPlayers();
     }
 }

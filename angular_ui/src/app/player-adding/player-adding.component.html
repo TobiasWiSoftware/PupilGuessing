@@ -2,12 +2,13 @@
 <div class="d-flex align-items-center">
     <div class="me-3" style="margin-right: 10px;">
       <!-- Label für Points mit größerer Schrift -->
+      <label class="form-label" style="font-size: larger; margin-right: 10px; color: red;" >{{ isInputDisabled ? '' : 'Spieler setzen'}}</label>
       <label class="form-label" style="font-size: larger; margin-right: 10px;">Points:</label>
-      <span id="pointsValue" style="font-size: larger;">{{this.player.points}}</span>
+      <span id="pointsValue" style="font-size: larger;">{{ (player$ | async)?.points }}</span>
     </div>
     <div class="me-2">
       <!-- Inputfeld für den Nickname -->
-      <input type="text" class="form-control" [disabled]="this.isInputDisabled" [src]="this.player.nickname" placeholder="Nickname">
+      <input type="text" class="form-control" [disabled]="this.isInputDisabled" [(ngModel)]="this.player.nickname" placeholder="Nickname">
     </div>
     <div>
       <!-- Button zum Starten -->

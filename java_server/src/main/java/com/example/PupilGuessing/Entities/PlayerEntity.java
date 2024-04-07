@@ -7,8 +7,8 @@ import java.io.Serializable;
 
 
 @Entity
-@Table(name = "users")
-public class UserEntity implements Serializable {
+@Table(name = "players")
+public class PlayerEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -19,17 +19,21 @@ public class UserEntity implements Serializable {
     @Basic(optional = false)
     @Column(name = "nick_name")
     private String nickname;
+    @Basic(optional = false)
+    @Column(name = "points")
+    private Integer points;
 
-    public UserEntity() {
+    public PlayerEntity() {
     }
 
-    public UserEntity(Integer id) {
+    public PlayerEntity(Integer id) {
         this.id = id;
     }
 
-    public UserEntity(Integer id, String nickname) {
+    public PlayerEntity(Integer id, String nickname, Integer points) {
         this.id = id;
         this.nickname = nickname;
+        this.points = points;
     }
 
     public Integer getId() {
@@ -46,5 +50,13 @@ public class UserEntity implements Serializable {
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
+    }
+
+    public Integer getPoints() {
+        return points;
+    }
+
+    public void setPoints(Integer points) {
+        this.points = points;
     }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { PlayerAddingService } from '../player-adding.service';
 import { OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -10,25 +10,32 @@ import { Observable } from 'rxjs';
 })
 export class PlayerAddingComponent{
 
+  
+  player$ = this.PlayerAddingService.getPlayer();
+
   player = {
-    nickname: '',
-    points: 0
+    nickname: '',    
   };
+  
+  
+  
+  
+  isInputDisabled = false;
+  
+  
+  constructor(private PlayerAddingService: PlayerAddingService, private cdRef: ChangeDetectorRef) { }
 
   
 
-  isInputDisabled = false;
-
-
-  constructor(private PlayerAddingService: PlayerAddingService) { }
-
-
   startGame(): void {
-    if(this.PlayerAddingService.player.nickname === '') {
+    if(this.PlayerAddingService.getNickname() === '') {
     console.log("Spieler hinzufügen");
-    this.PlayerAddingService.setPlayerNickName(this.player.nickname);
+    console.log(this.player.nickname);
+    this.PlayerAddingService.setPlayer(this.player.nickname);
     this.isInputDisabled = true;
+    this.cdRef.detectChanges();
     }
   }
 
+  
 }
